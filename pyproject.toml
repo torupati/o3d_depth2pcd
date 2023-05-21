@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "depth2pointcloud"
+version = "0.1.0"
+description = ""
+authors = ["torupa <xpt77@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+open3d = "^0.17.0"
+scikit-learn = "^1.2.2"
+tqdm = "^4.65.0"
+pandas = "^2.0.1"
+pyyaml = "^6.0"
+addict = "^2.4.0"
+pillow = "^9.5.0"
+matplotlib = "^3.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
