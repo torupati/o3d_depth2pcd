@@ -1,4 +1,5 @@
 import open3d as o3d
+import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -10,6 +11,9 @@ def func(rgb_filepath: str, depth_filepath: str):
 
     print(f'color: {type(color_raw)} type={color_raw.get_geometry_type()} dim={color_raw.dimension()}')
     print(f'depth: {type(depth_raw)} type={depth_raw.get_geometry_type()} dim={depth_raw.dimension()}')
+
+    print(np.asarray(color_raw).shape, np.asarray(color_raw).dtype)
+    print(np.asarray(depth_raw).shape, np.asarray(depth_raw).dtype)
 
     rgbd_image = o3d.geometry.RGBDImage.create_from_color_and_depth(
         color_raw, depth_raw)
@@ -35,6 +39,7 @@ def test_rgb_depth_to_pcd():
     print(f'Redwood Dataset {len(redwood_rgbd.color_paths)}')
     rgb_filepath = redwood_rgbd.color_paths[data_index]
     depth_filepath = redwood_rgbd.depth_paths[data_index]
+    func(rgb_filepath, depth_filepath)
 
 test_rgb_depth_to_pcd()
 
