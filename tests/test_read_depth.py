@@ -1,12 +1,14 @@
 """
 Check file read methods.
+
+$ poetry add pytest --group dev
+$ poetry run pytest -v tests/test_read_depth.py
 """
 
 import open3d as o3d
 import numpy as np
 import cv2
 infile_test = '../../../open3d_data/extract/SampleRedwoodRGBDImages/depth/00002.png'
-
 
 def test_read_depth(infile:str = infile_test):
     depth_o3d = o3d.io.read_image(infile)
@@ -20,7 +22,7 @@ def test_read_depth(infile:str = infile_test):
     print('-----------------------------------------------')
     print(type(depth_cv2))
     print(f'dtype=', depth_cv2.dtype, ' shape=', depth_cv2.shape)
-    print(f'max=', np.asarray(depth_cv2).max(), ' min=', np.asarray(depth_cv2).min())
+    print(f'max=', depth_cv2.max(), ' min=', depth_cv2.min())
     print('')
     depth_o3d_2 = o3d.geometry.Image(depth_cv2)
     print(type(depth_o3d_2))
